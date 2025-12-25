@@ -1,4 +1,4 @@
-package io.github.mrsnifo.persy.util;
+package io.github.mrsnifo.persy.utils;
 
 public class Config {
     public static final String DB_URL = System.getenv("DB_URL");

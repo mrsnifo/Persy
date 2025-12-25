@@ -1,4 +1,4 @@
-package io.github.mrsnifo.persy.util;
+package io.github.mrsnifo.persy.utils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

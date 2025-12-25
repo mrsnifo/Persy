@@ -1,7 +1,7 @@
 package io.github.mrsnifo.persy.service;
 
 import io.github.mrsnifo.persy.entities.Person;
-import io.github.mrsnifo.persy.util.HibernateUtil;
+import io.github.mrsnifo.persy.utils.HibernateUtil;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;

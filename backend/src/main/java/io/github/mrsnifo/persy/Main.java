@@ -1,6 +1,6 @@
 package io.github.mrsnifo.persy;
 
-import io.github.mrsnifo.persy.util.Config;
+import io.github.mrsnifo.persy.utils.Config;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 
