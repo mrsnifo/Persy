@@ -27,7 +27,4 @@ public class Person {
 
     @Column
     private String phoneNumber;
-
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
 }
