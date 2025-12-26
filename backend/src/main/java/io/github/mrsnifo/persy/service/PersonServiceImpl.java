@@ -74,14 +74,22 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> searchPersons(String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return getAllPersons();
+        }
+
+        String searchTerm = query.trim().toLowerCase();
         EntityManager em = HibernateUtil.getEntityManager();
         try {
             String jpql = "SELECT p FROM Person p WHERE " +
                     "LOWER(p.firstName) LIKE :q OR " +
                     "LOWER(p.lastName) LIKE :q OR " +
-                    "LOWER(p.email) LIKE :q";
+                    "LOWER(p.email) LIKE :q OR " +
+                    "LOWER(p.phoneNumber) LIKE :q";
+
             TypedQuery<Person> typedQuery = em.createQuery(jpql, Person.class);
-            typedQuery.setParameter("q", "%" + query.toLowerCase() + "%");
+            typedQuery.setParameter("q", "%" + searchTerm + "%");
+
             return typedQuery.getResultList();
         } finally {
             em.close();
