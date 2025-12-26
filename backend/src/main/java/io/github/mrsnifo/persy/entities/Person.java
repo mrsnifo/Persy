@@ -7,17 +7,27 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 public class Person {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
     @Column(nullable = false)
-    private String name;
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
 
     @Column
-    private int age;
+    private String phoneNumber;
+
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
 }

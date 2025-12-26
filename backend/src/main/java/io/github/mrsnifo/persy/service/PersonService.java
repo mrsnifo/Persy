@@ -12,7 +12,7 @@ public interface PersonService {
 
     Person getPerson(int id);
 
-    Person getPersonByName(String name);
+    List<Person> searchPersons(String query);
 
     List<Person> getAllPersons();
 }

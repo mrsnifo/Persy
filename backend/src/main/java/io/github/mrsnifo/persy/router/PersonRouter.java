@@ -30,8 +30,8 @@ public class PersonRouter {
 
     @GET
     @Path("/search")
-    public Person getPersonByName(@QueryParam("name") String name) {
-        return service.getPersonByName(name);
+    public List<Person> searchPersons(@QueryParam("query") String query) {
+        return service.searchPersons(query);
     }
 
     @POST
