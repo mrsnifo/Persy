@@ -78,17 +78,26 @@ public class PersonServiceImpl implements PersonService {
             return getAllPersons();
         }
 
-        String searchTerm = query.trim().toLowerCase();
+        String[] words = query.trim().toLowerCase().split("\\s+");
         EntityManager em = HibernateUtil.getEntityManager();
         try {
-            String jpql = "SELECT p FROM Person p WHERE " +
-                    "LOWER(p.firstName) LIKE :q OR " +
-                    "LOWER(p.lastName) LIKE :q OR " +
-                    "LOWER(p.email) LIKE :q OR " +
-                    "LOWER(p.phoneNumber) LIKE :q";
+            StringBuilder jpql = new StringBuilder("SELECT p FROM Person p WHERE ");
 
-            TypedQuery<Person> typedQuery = em.createQuery(jpql, Person.class);
-            typedQuery.setParameter("q", "%" + searchTerm + "%");
+            for (int i = 0; i < words.length; i++) {
+                if (i > 0) jpql.append(" AND "); // all words must match somewhere
+                jpql.append("(")
+                        .append("LOWER(p.firstName) LIKE :word").append(i)
+                        .append(" OR LOWER(p.lastName) LIKE :word").append(i)
+                        .append(" OR LOWER(p.email) LIKE :word").append(i)
+                        .append(" OR LOWER(p.phoneNumber) LIKE :word").append(i)
+                        .append(")");
+            }
+
+            TypedQuery<Person> typedQuery = em.createQuery(jpql.toString(), Person.class);
+
+            for (int i = 0; i < words.length; i++) {
+                typedQuery.setParameter("word" + i, "%" + words[i] + "%");
+            }
 
             return typedQuery.getResultList();
         } finally {
