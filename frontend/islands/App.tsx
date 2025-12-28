@@ -168,6 +168,7 @@ export default function App() {
               </p>
             </div>
             <button
+              type="button"
               onClick={openModal}
               class="btn btn-primary"
               disabled={isLoading.value}
@@ -191,6 +192,7 @@ export default function App() {
               }}
             />
             <button
+              type="button"
               onClick={handleSearch}
               class="btn btn-primary"
               disabled={isLoading.value}
@@ -201,6 +203,7 @@ export default function App() {
             </button>
             {searchQuery.value && (
               <button
+                type="button"
                 onClick={handleClearSearch}
                 class="btn btn-ghost"
               >
