@@ -1,25 +1,23 @@
-import { useSignal } from "@preact/signals";
-import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
-import Counter from "../islands/Counter.tsx";
+import App from "../islands/App.tsx";
 
-export default define.page(function Home(ctx) {
-  const count = useSignal(3);
-
-  console.log("Shared value " + ctx.state.shared);
-
+export default define.page(() => {
   return (
-    <div class="px-4 py-8 mx-auto fresh-gradient min-h-screen">
-      <Head>
-        <title>Fresh counter</title>
-      </Head>
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
-        <p class="my-4">
-          Try updating this message in the
-          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
-        </p>
-        <Counter count={count} />
+    <div class="min-h-screen bg-base-200 relative overflow-hidden">
+      {/* Background decorative blurs */}
+      <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute w-100 h-100 rounded-full bg-primary/30 -top-32 -right-32 blur-3xl">
+        </div>
+        <div class="absolute w-80 h-80 rounded-full bg-primary/25 bottom-20 -left-20 blur-2xl">
+        </div>
+        <div class="absolute w-50 h-40 rounded-full bg-primary/20 top-1/2 right-32 blur-xl">
+        </div>
+      </div>
+
+      <div class="relative z-10 min-h-screen flex items-center justify-center p-4 py-12">
+        <div class="w-full max-w-4xl space-y-6">
+          <App />
+        </div>
       </div>
     </div>
   );
