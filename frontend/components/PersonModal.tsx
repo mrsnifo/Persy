@@ -44,7 +44,6 @@ export function PersonModal({
             </label>
             <input
               type="text"
-              placeholder="John"
               class="input input-bordered w-full"
               value={formData.value.firstName}
               onInput={(e) => (formData.value = {
@@ -60,7 +59,6 @@ export function PersonModal({
             </label>
             <input
               type="text"
-              placeholder="Doe"
               class="input input-bordered w-full"
               value={formData.value.lastName}
               onInput={(e) => (formData.value = {
@@ -76,7 +74,6 @@ export function PersonModal({
             </label>
             <input
               type="email"
-              placeholder="john@example.com"
               class="input input-bordered w-full"
               value={formData.value.email}
               onInput={(e) => (formData.value = {
@@ -92,7 +89,6 @@ export function PersonModal({
             </label>
             <input
               type="tel"
-              placeholder="+1 (555) 123-4567"
               class="input input-bordered w-full"
               value={formData.value.phoneNumber}
               onInput={(e) => (formData.value = {
