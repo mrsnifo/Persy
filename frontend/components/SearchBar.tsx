@@ -53,4 +53,4 @@ export function SearchBar(
       </div>
     </div>
   );
-} // components/Header.tsx
+}
