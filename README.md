@@ -6,7 +6,7 @@ Manage all your people in one place.
 
 ## Technologies
 
-**Frontend:** Preact, Deno, Tailwind CSS, DaisyUI\
+**Frontend:** Preact, Deno Fresh, Tailwind CSS, DaisyUI\
 **Backend:** Java, Jersey, Hibernate, Grizzly
 
 ## Configuration
