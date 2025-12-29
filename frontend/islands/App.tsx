@@ -180,7 +180,7 @@ export default function App() {
           <div class="flex gap-2">
             <input
               type="text"
-              placeholder="Search by name, email, or phone..."
+              placeholder="Search by name, email, or phone.."
               class="input input-bordered w-full"
               value={searchQuery.value}
               onInput={(
