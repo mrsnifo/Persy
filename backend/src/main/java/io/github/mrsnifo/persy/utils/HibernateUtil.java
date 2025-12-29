@@ -12,18 +12,15 @@ public class HibernateUtil {
 
     static {
         try {
-            // Make sure Config loads environment variables
             if (Config.DB_URL == null || Config.DB_USER == null) {
                 throw new RuntimeException("DB config not loaded properly from environment variables");
             }
 
-            // Only override JDBC properties with valid values
             Map<String, String> props = new HashMap<>();
             props.put("javax.persistence.jdbc.url", Config.DB_URL);
             props.put("javax.persistence.jdbc.user", Config.DB_USER);
             props.put("javax.persistence.jdbc.password", Config.DB_PASSWORD);
 
-            // Now create EMF with persistence.xml + overrides
             emf = Persistence.createEntityManagerFactory("persyPU", props);
 
         } catch (Exception e) {
