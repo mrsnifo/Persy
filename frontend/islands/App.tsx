@@ -1,4 +1,3 @@
-// islands/App.tsx
 import { useEffect } from "preact/hooks";
 import { signal } from "@preact/signals";
 import { type Person, PersonService } from "../lib/api/index.ts";
